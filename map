@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .map {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+        }
+        .highlight {
+            fill: pink;
+        }
+        .country:hover {
+            cursor: pointer;
+            fill: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Professional Portfolio</h1>
+    </header>
+    <div class="container">
+        <section id="map-section" class="section">
+            <h2>Where I've Worked</h2>
+            <svg class="map" viewBox="0 0 2000 1001">
+                <!-- Example SVG content, specific paths should be replaced with actual paths from a full SVG map file -->
+                <path id="BR" class="country highlight" d="M1360,610L1380,610L1380,630L1360,630Z" data-country="Brazil"></path>
+                <path id="US" class="country highlight" d="M300,250L320,250L320,270L300,270Z" data-country="USA"></path>
+                <path id="IT" class="country highlight" d="M1200,450L1220,450L1220,470L1200,470Z" data-country="Italy"></path>
+                <path id="SG" class="country highlight" d="M1500,700L1520,700L1520,720L1500,720Z" data-country="Singapore"></path>
+                <path id="FR" class="country highlight" d="M1150,400L1170,400L1170,420L1150,420Z" data-country="France"></path>
+                <!-- Add the rest of the world map here -->
+            </svg>
+        </section>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const countryLinks = {
+                "BR": "brazil.html",
+                "US": "usa.html",
+                "IT": "italy.html",
+                "SG": "singapore.html",
+                "FR": "france.html"
+            };
+
+            document.querySelectorAll('.country').forEach(country => {
+                country.addEventListener('click', function() {
+                    const countryId = this.id;
+                    window.location.href = countryLinks[countryId];
+                });
+            });
+        });
+    </script>
+</body>
+</html>
